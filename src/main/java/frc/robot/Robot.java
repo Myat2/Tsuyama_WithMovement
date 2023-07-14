@@ -40,15 +40,6 @@ public class Robot extends TimedRobot {
     m_robotContainer = new RobotContainer();
     m_omnidrive = RobotContainer.m_omnidrive;
 
-    //Run PID in different thread at higher rate
-    if (Constants.PID_THREAD ) {
-      m_follower = new Notifier(() -> { m_omnidrive.doPID(); });
-      m_follower.startPeriodic(Constants.PID_DT);
-    }
-
-    //CameraServer.getInstance().startAutomaticCapture();
-    //CvSink cvSink = CameraServer.getInstance().getVideo();
-    //CvSource outputStream = CameraServer.getInstance().putVideo("camera", 640, 480);
   }
 
   /**
@@ -62,9 +53,6 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();
 
-    if (RobotContainer.m_sensor.getSwitch()==true) {
-      CommandScheduler.getInstance().enable();
-    }
   }
 
   /**

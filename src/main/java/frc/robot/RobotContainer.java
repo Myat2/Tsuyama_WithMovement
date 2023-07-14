@@ -7,21 +7,20 @@
 
 package frc.robot;
 
-
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.TeleCmd;
 import frc.robot.commands.auto.AutoMainCmd;
 import frc.robot.commands.gamepad.OI;
+import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.Menu;
 import frc.robot.subsystems.OmniDrive;
-import frc.robot.subsystems.Sensor;
 
 public class RobotContainer {
 
   //subsystems
   public final static OI m_oi = new OI();
   public final static OmniDrive m_omnidrive = new OmniDrive();
-  public final static Sensor m_sensor = new Sensor(); 
+  public final static Arm m_arm = new Arm(); 
   //user menu
   public final static Menu m_menu = new Menu(m_oi);
   //commands

@@ -56,8 +56,9 @@ public class TeleCmd extends CommandBase
         x = m_oi.getRightDriveX();
         y = -m_oi.getRightDriveY();//Down is positive. Need to negate
         w = -m_oi.getLeftDriveX(); //X-positive is CW. Need to negate
-
-        m_omnidrive.setRobotSpeedXYW(x*0.6, y*0.6, w*Math.PI);
+        double z = m_oi.getLeftDriveY(); //X-positive is CW. Need to negate
+        // m_omnidrive.setMotorOut0123(x, y, w, z);
+        m_omnidrive.setRobotSpeedXYW_Open(x, y, w);
 
     }
 

@@ -9,11 +9,8 @@ import edu.wpi.first.wpilibj2.command.SelectCommand;
 //WPI imports
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Globals;
-import frc.robot.commands.auto.MoveBack;
-import frc.robot.commands.auto.MoveCurve;
-import frc.robot.commands.auto.MoveLeft;
-import frc.robot.commands.auto.MoveRight;
-import frc.robot.commands.auto.MoveTest;
+import frc.robot.commands.auto.MoveArm;
+import frc.robot.commands.auto.PickItem;
 import frc.robot.commands.gamepad.OI;
 
 public class Menu extends SubsystemBase
@@ -39,20 +36,16 @@ public class Menu extends SubsystemBase
         m_oi.buttonStart.whenPressed(             
             new SelectCommand(
                 Map.ofEntries(
-                    Map.entry(menuNum++, new MoveLeft()),
-                    Map.entry(menuNum++, new MoveRight()),
-                    Map.entry(menuNum++, new MoveBack()),
-                    Map.entry(menuNum++, new MoveTest()),
-                    Map.entry(menuNum++, new MoveCurve()) 
+                    Map.entry(menuNum++, new PickItem()),
+                    Map.entry(menuNum++, new PickItem()),
+                    Map.entry(menuNum++, new PickItem())
                 ), ()->Globals.menuItem
             ) 
         );
         menuName = new String[] {
             "task0",
             "task1",
-            "task2",
-            "task3",
-            "task4" 
+            "task2"
         };
 
         //A-up button, Y-down button
